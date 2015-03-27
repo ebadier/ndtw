@@ -182,14 +182,18 @@ namespace NDtw
                             //Math.Pow(xVal - ySeriesForVariable[j], 2) is much slower, so direct multiplication with temporary variable is used
                             var dist = (xVal - ySeriesForVariable[j]) * variableWeight;
                             currentDistances[j] += dist * dist;
-							if (_distanceMeasure == DistanceMeasure.Euclidean)
-							{
-								currentDistances[j] = Math.Sqrt(currentDistances[j]);
-							}
                         }        
                     }
                 }
             }
+
+            if(_distanceMeasure == DistanceMeasure.Euclidean)
+                for (int i = 0; i < _xLen; i++)
+                {
+                    var currentDistances = _distances[i];
+                    for (int j = 0; j < _yLen; j++)
+                        currentDistances[j] = Math.Sqrt(currentDistances[j]);
+                }
         }
 
         private void CalculateWithoutSlopeConstraint()
