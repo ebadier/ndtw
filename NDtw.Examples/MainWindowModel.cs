@@ -106,8 +106,8 @@ namespace NDtw.Examples
                                        DistanceMeasure.SquaredEuclidean,
                                        DistanceMeasure.Maximum
                                    };
-            
-            SelectedDistanceMeasure = DistanceMeasure.Euclidean;
+
+			SelectedDistanceMeasure = DistanceMeasure.Manhattan;
         }
 
         public ObservableCollection<string> Entities { get; private set; }
